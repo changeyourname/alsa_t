@@ -1,0 +1,16 @@
+build tools: 	
+	arm-none-linux-gnueabi-gcc(version 4.1.2)
+Configured with: 
+	/usr/src/redhat/BUILD/cross-mlib/source/gcc-4.1.2/configure 
+	--target=arm-none-linux-gnueabi --host=i686-host_pc-linux-gnu 
+	--prefix=/opt/freescale/usr/local/gcc-4.1.2-glibc-2.5-nptl-3/arm-none-linux-gnueabi 
+	--with-sysroot=/opt/freescale/usr/local/gcc-4.1.2-glibc-2.5-nptl-3/arm-none-linux-gnueabi/arm-none-linux-gnueabi/sysroot 
+	--enable-threads 
+	--enable-shared 
+	--disable-libssp 
+	--disable-libgomp 
+	--disable-libmudflap 
+	--enable-languages=c,c++ 
+	--enable-__cxa_atexit 
+	--disable-nls
+Thread model: 	posix
