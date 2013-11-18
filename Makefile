@@ -1,7 +1,12 @@
 CC=arm-none-linux-gnueabi-gcc
 
-beep: wav_beep.c Talsa.c
+all:Makefile beep
+
+beep: Talsa.o wav_beep.o
 	${CC} -o $@ $^
+
+Makefile:
+	echo Makefile
 
 clean:
 	-rm -rf beep *.o
