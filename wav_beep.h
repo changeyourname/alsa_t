@@ -9,6 +9,7 @@ struct WAV_INFO
 	char 				*pdata;
 };
 
+#ifdef STATIC_WAV
 extern char wav_beepok[];
 extern char wav_beeperr[];
 extern char wav_slotcard[];
@@ -96,3 +97,8 @@ struct WAV_INFO slotcard_info = {
 
 	.pdata 				= wav_slotcard
 };
+#else 
+	struct WAV_INFO beepok_info;
+	struct WAV_INFO beeperr_info;
+	struct WAV_INFO slotcard_info;
+#endif
