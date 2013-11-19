@@ -36,17 +36,31 @@ int main(char argc, char **argv)
 	int 			src_wav;
 	
 	unsigned int 	count;
-	unsigned char 	*pdata;
 	long 			remain;
 	int 			tmp_cul;
 	char 			volum;
 	int				status;
 	int 			arg;
+	unsigned char 	*pdata;
+	unsigned char 	f_wav[128];
 
 	struct WAV_INFO *info;
 	
-	printf("Begin ...\r\n");
-	src_wav = open ("./alsa.wav", O_RDWR);
+	if(argc == 1){
+		volum = 4;
+		strcpy(f_wav, "alsa.wav");
+	}else if(argc == 2){
+		strcpy(f_wav, argv[1]);
+	}else if(argc == 3){
+		strcpy(f_wav, argv[1]);
+
+		volum = (*argv[2] - '0') % 8;
+	}else{
+		snd_debug("Error!\r\n");
+		exit(-1);
+	}
+
+	src_wav = open (f_wav, O_RDWR);
 	if (src_wav == 0){
 		snd_debug("open src_wav failed!\r\n");
 		exit -1;
@@ -120,20 +134,7 @@ int main(char argc, char **argv)
 	arg = info->fmt_block.wavFormat.wBitsPerSample;
 	status = ioctl(dev_dsp, SOUND_PCM_WRITE_BITS, &arg);
 	
-	if(argc == 1){
-		arg = 1;
-		volum = arg;
-		// ioctl(dev_dsp,SOUND_PCM_WRITE_VOLUME,&arg);
-	}else if(argc == 2){
-		arg = *argv[1] - '0';
-		volum = arg;
-		// ioctl(dev_dsp,SOUND_PCM_WRITE_VOLUME,&arg);
-	}else{
-		snd_debug("Error!\r\n");
-		exit(-1);
-	}
-
-
+#define FRAME_LEN 	1024
 #define likely(x) 	__builtin_expect((x),1)
 #define unlikely(x) __builtin_expect((x),0)
 #define MIN(a,b) 	(likely(a < b) ? a : b)
@@ -146,36 +147,115 @@ __Again:
 	info->pdata = pdata;
 	remain = info->data_block.dwDataSize & (~(1UL));
 	while(remain){
-		status = read(src_wav, pdata, MIN(8192, remain));
-		if(unlikely(status != MIN(8192, remain))){
+		status = read(src_wav, pdata, MIN(FRAME_LEN, remain));
+		if(unlikely(status != MIN(FRAME_LEN, remain))){
 			snd_debug("Error!\r\n");
 			exit(-1);
 		}
+	
+		char tmp_vol;
+		switch(volum){
+		case 0:
+			memset(pdata, 0, MIN(FRAME_LEN, remain));
+			break;
+		case 1:
+		case 2:
+		case 3:
+			tmp_vol = 4 - volum;
+			for(count = 0; count < MIN(FRAME_LEN, remain); count += 2){
+				tmp_cul = (pdata[count + 1] << 8) | pdata[count];
+				if(tmp_cul & 0x8000){
+					tmp_cul |= 0xffff0000;
+					tmp_cul = ~((~tmp_cul + 1) >> tmp_vol) + 1;
+					if(unlikely(tmp_cul < -32767)){
+						tmp_cul = -32767;
+					}
+				}else{
+					tmp_cul = tmp_cul >> tmp_vol;
+					if(unlikely(tmp_cul > 0x7fff)){
+						tmp_cul = 0x7fff;
+					}
+				}
 
-		for(count = 0; count < MIN(8192, remain); count += 2){
-			tmp_cul = (pdata[count + 1] << 8) | pdata[count];
-			if(tmp_cul & 0x8000){
-				tmp_cul = ~((~tmp_cul + 1) << volum ) + 1;
-				if(unlikely(tmp_cul < -32767)){
-					tmp_cul = -32767;
-				}
-			}else{
-				tmp_cul = tmp_cul << volum;
-				if(unlikely(tmp_cul > 0x7fff)){
-					tmp_cul = 0x7fff;
-				}
+				pdata[count + 1] = (tmp_cul >> 8) & 0xff;
+				pdata[count] = tmp_cul & 0xff;
 			}
+			break;
+		case 4:
+			break;
+		case 5:
+			tmp_vol = 1;
+			for(count = 0; count < MIN(FRAME_LEN, remain); count += 2){
+				tmp_cul = (pdata[count + 1] << 8) | pdata[count];
+				if(tmp_cul & 0x8000){
+					tmp_cul |= 0xffff0000;
+					tmp_cul = ~((~tmp_cul + 1) + (~tmp_cul + 1) >> 1) + 1;
+					if(unlikely(tmp_cul < -32767)){
+						tmp_cul = -32767;
+					}
+				}else{
+					tmp_cul = tmp_cul + (tmp_cul >> 3);
+					if(unlikely(tmp_cul > 0x7fff)){
+						tmp_cul = 0x7fff;
+					}
+				}
 
-			pdata[count + 1] = (tmp_cul >> 8) & 0xff;
-			pdata[count] = tmp_cul & 0xff;
+				pdata[count + 1] = (tmp_cul >> 8) & 0xff;
+				pdata[count] = tmp_cul & 0xff;
+			}
+			break;
+		case 6:
+			tmp_vol = 1;
+			for(count = 0; count < MIN(FRAME_LEN, remain); count += 2){
+				tmp_cul = (pdata[count + 1] << 8) | pdata[count];
+				if(tmp_cul & 0x8000){
+					tmp_cul |= 0xffff0000;
+					tmp_cul = ~((~tmp_cul + 1) + (~tmp_cul + 1) >> 0) + 1;
+					if(unlikely(tmp_cul < -32767)){
+						tmp_cul = -32767;
+					}
+				}else{
+					tmp_cul = tmp_cul + (tmp_cul >> 2);
+					if(unlikely(tmp_cul > 0x7fff)){
+						tmp_cul = 0x7fff;
+					}
+				}
+
+				pdata[count + 1] = (tmp_cul >> 8) & 0xff;
+				pdata[count] = tmp_cul & 0xff;
+			}
+			break;
+		case 7:
+			for(count = 0; count < MIN(FRAME_LEN, remain); count += 2){
+				tmp_cul = (pdata[count + 1] << 8) | pdata[count];
+				if(tmp_cul & 0x8000){
+					tmp_cul |= 0xffff0000;
+					tmp_cul = ~((~tmp_cul + 1) << 1) + 1;
+					if(unlikely(tmp_cul < -32767)){
+						tmp_cul = -32767;
+					}
+				}else{
+					tmp_cul = (tmp_cul << tmp_vol) + (tmp_cul >> 1);
+					if(unlikely(tmp_cul > 0x7fff)){
+						tmp_cul = 0x7fff;
+					}
+				}
+
+				pdata[count + 1] = (tmp_cul >> 8) & 0xff;
+				pdata[count] = tmp_cul & 0xff;
+			}
+			break;
+		default:
+			break;
 		}
 
-		status = write(dev_dsp, pdata, MIN(8192, remain));
-		if(unlikely(status != MIN(8192, remain))){
+
+		status = write(dev_dsp, pdata, MIN(FRAME_LEN, remain));
+		if(unlikely(status != MIN(FRAME_LEN, remain))){
 			snd_debug("write pdata failed! status = %d", status);
 			exit -1;
 		}else{
-			remain -= MIN(8192, remain);
+			remain -= MIN(FRAME_LEN, remain);
 		}
 	}
 		
