@@ -6,10 +6,12 @@
 #include "wav.h"
 #include "wav_beep.h"
 #include "soundcard.h"
+#include "machine.h"
 
 #define snd_info(fmt, args...)											\
 	printf(fmt"@%s--%d\r\n",##args, __FILE__,__LINE__)
 #define snd_err(fmt, args...) snd_info(fmt, ##args)
+#define snd_warn(fmt, args...) snd_info(fmt, ##args)
 
 #define SND_DEBUG		1
 #ifdef SND_DEBUG 
@@ -18,18 +20,8 @@
 	#define snd_debug(fmt, args...)
 #endif
 
-static unsigned char request_instruction(void){
-	int tmp = 0;
-	
-	printf("Again 1;Quit 0\r\n");
-	printf("Please input your command:");
-	scanf("%d", &tmp);
-	printf("\r\n");
-	
-	snd_debug("tmp = %d",tmp);
-	return tmp;
-}
-
+static unsigned char request_instruction(void);
+inline int volum_to_freq(char volum);
 int main(char argc, char **argv)
 {
 	int 			dev_dsp;
@@ -46,10 +38,18 @@ int main(char argc, char **argv)
 
 	struct WAV_INFO *info;
 	
+	status = dev_misc_get_machineversion();
+	if(status < 0){
+		snd_warn("machine would be set to K301P");
+	}else{
+		snd_debug("machine = %d", machine.type);
+	}
+	
 	if(argc == 1){
 		volum = 4;
-		strcpy(f_wav, "alsa.wav");
+		strcpy(f_wav, "/res/beepok.wav");
 	}else if(argc == 2){
+		volum = 4;
 		strcpy(f_wav, argv[1]);
 	}else if(argc == 3){
 		strcpy(f_wav, argv[1]);
@@ -125,7 +125,13 @@ int main(char argc, char **argv)
 	arg = 179;
 	status = ioctl(dev_dsp, SOUND_PCM_LIBDEV_VERSION, &arg);
 
-	arg = info->fmt_block.wavFormat.dwSamplesPerSec;
+	if(machine.type == G810){
+		arg = volum_to_freq(volum);
+		volum = 7;
+	}else{
+		arg = info->fmt_block.wavFormat.dwSamplesPerSec;
+	}
+
 	status = ioctl(dev_dsp,SOUND_PCM_WRITE_RATE,&arg);
 	
 	arg = info->fmt_block.wavFormat.wChannels;
@@ -268,4 +274,40 @@ __Again:
 	close(dev_dsp);
 
 	return 0;
+}
+
+inline int volum_to_freq(char volum)                                                                               
+{                                                                                                                  
+    int freq;                                                                                                      
+                                                                                                                                             
+    switch(volum){                                                                                                 
+    case 0:                                                                                                        
+        freq = 32000;                                                                                              
+        break;                                                                                                     
+    case 1:                                                                                                        
+    case 2:                                                                                                        
+    case 3:                                                                                                        
+    case 4:                                                                                                        
+    case 5:                                                                                                        
+    case 6:                                                                                                        
+    case 7:                                                                                                        
+        freq = volum * 2000 + 32000;                                                                               
+        break;                                                                                                     
+    default:                                                                                                       
+        freq = 44100;                                                                                              
+    }                                                                                                              
+                                                                                                                   
+    return freq;                                                                                                   
+}
+
+static unsigned char request_instruction(void){
+	int tmp = 0;
+	
+	printf("Again 1;Quit 0\r\n");
+	printf("Please input your command:");
+	scanf("%d", &tmp);
+	printf("\r\n");
+	
+	snd_debug("tmp = %d",tmp);
+	return tmp;
 }
