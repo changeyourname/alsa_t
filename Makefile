@@ -6,10 +6,13 @@ else
 CC=arm-none-linux-gnueabi-gcc
 endif
 
-CPPFLAGS =-I${BUILD_PWD}/include/
+CPPFLAGS +=-I${BUILD_PWD}/include/
 ifneq ("RELEASE", "${MODE}")
+CPPFLAGS +=-DAPP_DEBUG
 CPPFLAGS +=-rdynamic
 CPPFLAGS +=-g
+else
+CPPFLAGS +=-O2
 endif
 
 head_file =asound.h
