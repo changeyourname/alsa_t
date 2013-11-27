@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <getopt.h>
 #include <sys/mman.h>
 
 #include "wav.h"
@@ -9,8 +10,10 @@
 #include "machine.h"
 #include "app_debug.h"
 
-static unsigned char request_instruction(void);
+static char *command;
+
 inline int volum_to_freq(char volum);
+static void usage(char *command);
 int main(char argc, char **argv)
 {
 	int 			dev_dsp;
@@ -19,14 +22,34 @@ int main(char argc, char **argv)
 	unsigned int 	count;
 	long 			remain;
 	int 			tmp_cul;
-	char 			volum;
+	char 			volum = 4;
 	int				status;
 	int 			arg;
 	unsigned char 	*pdata;
-	unsigned char 	f_wav[128];
+	unsigned char 	*f_wav = NULL;
 
 	struct WAV_INFO *info;
 	
+	static struct option long_options[] = {
+		{"help", 0, 0, 'h'},
+		{"volume", 1, 0, 'v'},
+		{0, 0, 0, 0}
+	};
+	char *short_options = "hv:";
+
+	int option_index;
+	command = argv[0];
+	while ((arg = getopt_long(argc, argv, short_options, long_options, &option_index)) != -1) {
+		switch (arg) {
+		case 'h':
+			usage(command);
+			return 0;
+		case 'v':
+			volum = atoi(optarg);
+			app_debug("volume = %d", volum);
+			break;
+		}
+	}
 	status = dev_misc_get_machineversion();
 	if(status < 0){
 		app_warn("machine would be set to K301P");
@@ -34,25 +57,13 @@ int main(char argc, char **argv)
 		app_debug("machine = %d", machine.type);
 	}
 	
-	if(argc == 1){
-		volum = 4;
-		strcpy(f_wav, "/res/beepok.wav");
-	}else if(argc == 2){
-		volum = 4;
-		strcpy(f_wav, argv[1]);
-	}else if(argc == 3){
-		strcpy(f_wav, argv[1]);
-
-		volum = (*argv[2] - '0') % 8;
-	}else{
-		app_debug("Error!\r\n");
-		exit(-1);
-	}
-
+	f_wav = argv[optind];
+	app_debug("wav is %s", f_wav);
 	src_wav = open (f_wav, O_RDWR);
-	if (src_wav == 0){
-		app_debug("open src_wav failed!\r\n");
-		exit -1;
+	if (src_wav < 0){
+		app_err("open %s failed!", f_wav);
+		usage(command);
+		exit(-1);
 	}
 
 	info = (struct WAV_INFO *)malloc(sizeof(struct WAV_INFO));
@@ -133,7 +144,6 @@ int main(char argc, char **argv)
 #define likely(x) 	__builtin_expect((x),1)
 #define unlikely(x) __builtin_expect((x),0)
 #define MIN(a,b) 	(likely(a < b) ? a : b)
-__Again:
 	if(lseek(src_wav, data_offset + 8, SEEK_SET) != data_offset + 8){
 		app_debug("Error!\r\n");
 		exit(-1);
@@ -253,10 +263,6 @@ __Again:
 			remain -= MIN(FRAME_LEN, remain);
 		}
 	}
-		
-	if(request_instruction() == 1){
-		goto __Again;
-	}
 	
 	free(pdata);
 	free(info);
@@ -289,14 +295,12 @@ inline int volum_to_freq(char volum)
     return freq;                                                                                                   
 }
 
-static unsigned char request_instruction(void){
-	int tmp = 0;
-	
-	printf("Again 1;Quit 0\r\n");
-	printf("Please input your command:");
-	scanf("%d", &tmp);
-	printf("\r\n");
-	
-	app_debug("tmp = %d",tmp);
-	return tmp;
+static void usage(char *command)
+{
+	fprintf(stderr,
+"\n"
+"Usage: %s [OPTION]... [FILE]...\n"
+"-h, --help              help\n"
+"\n"
+		, command);
 }
