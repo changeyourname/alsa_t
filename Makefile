@@ -1,16 +1,41 @@
+BUILD_PWD := $(shell /bin/pwd)
+
+ifeq ("PC", "${ARCH}")
+CC=gcc
+else
 CC=arm-none-linux-gnueabi-gcc
+endif
 
-head_file=asound.h deftype.h soundcard.h wav_beep.h wav.h
-c_obj=Talsa.o machine.o
+CPPFLAGS =-I${BUILD_PWD}/include/
+ifneq ("RELEASE", "${MODE}")
+CPPFLAGS +=-rdynamic
+CPPFLAGS +=-g
+endif
 
-beep: c_dep ${head_file} Makefile
-	mv $< $@
+head_file =asound.h
+head_file +=deftype.h
+head_file +=soundcard.h
+head_file +=wav_beep.h
+head_file +=wav.h
+head_file +=app_debug.h
+head_file +=machine.h
+make_file =Makefile
+c_obj =ossplayer.o 
+c_obj +=machine.o 
+c_obj +=app_debug.o
 
-c_dep: ${c_obj}
-	${CC} -o $@ $^
+ossplayer: ${c_obj} 
+	${CC} -Wl,-Map=ossplayer.map ${CPPFLAGS} ${LDFLAGS} -o $@ ${c_obj}
 
-Makefile:
-	echo "rebuilding ..."
+${c_obj}: %.o:%.c h.obj m.obj
+	${CC} -c ${CPPFLAGS} ${LDFLAGS} $< -o $@
+
+h.obj: ${head_file}
+	touch h.obj
+
+m.obj: ${make_file}
+	touch m.obj
 
 clean:
-	-rm -rf beep *.o
+	-rm -rf ossplayer *.o *_obj *.obj *.map
+

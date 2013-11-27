@@ -7,18 +7,7 @@
 #include "wav_beep.h"
 #include "soundcard.h"
 #include "machine.h"
-
-#define snd_info(fmt, args...)											\
-	printf(fmt"@%s--%d\r\n",##args, __FILE__,__LINE__)
-#define snd_err(fmt, args...) snd_info(fmt, ##args)
-#define snd_warn(fmt, args...) snd_info(fmt, ##args)
-
-#define SND_DEBUG		1
-#ifdef SND_DEBUG 
-	#define snd_debug(fmt, args...) snd_info(fmt,##args)
-#else
-	#define snd_debug(fmt, args...)
-#endif
+#include "app_debug.h"
 
 static unsigned char request_instruction(void);
 inline int volum_to_freq(char volum);
@@ -40,9 +29,9 @@ int main(char argc, char **argv)
 	
 	status = dev_misc_get_machineversion();
 	if(status < 0){
-		snd_warn("machine would be set to K301P");
+		app_warn("machine would be set to K301P");
 	}else{
-		snd_debug("machine = %d", machine.type);
+		app_debug("machine = %d", machine.type);
 	}
 	
 	if(argc == 1){
@@ -56,42 +45,42 @@ int main(char argc, char **argv)
 
 		volum = (*argv[2] - '0') % 8;
 	}else{
-		snd_debug("Error!\r\n");
+		app_debug("Error!\r\n");
 		exit(-1);
 	}
 
 	src_wav = open (f_wav, O_RDWR);
 	if (src_wav == 0){
-		snd_debug("open src_wav failed!\r\n");
+		app_debug("open src_wav failed!\r\n");
 		exit -1;
 	}
 
 	info = (struct WAV_INFO *)malloc(sizeof(struct WAV_INFO));
 	if(info == 0){
-		snd_debug("malloc info failed!\r\n");
+		app_debug("malloc info failed!\r\n");
 		exit -1;
 	}
 
 	pdata = (char *)malloc(16384);
 	if(pdata == 0){
-		snd_debug("malloc pdata failed!\r\n");
+		app_debug("malloc pdata failed!\r\n");
 		exit -1;
 	}
 	
 	status = read(src_wav, pdata, 128);
 	if(status != 128){
 		info->riff_header.dwRiffSize 	= *(u32 *)&pdata[4];
-		snd_debug("dwRiffSize = %x", info->riff_header.dwRiffSize);
+		app_debug("dwRiffSize = %x", info->riff_header.dwRiffSize);
 	}
 
 	info->fmt_block.dwFmtSize 	= *(u32 *)&pdata[16];
-	snd_debug("dwFmtSize = %d", info->fmt_block.dwFmtSize);
+	app_debug("dwFmtSize = %d", info->fmt_block.dwFmtSize);
 	info->fmt_block.wavFormat.wChannels 		= *(u16 *)&pdata[22]; 
-	snd_debug("wChannels = %d", info->fmt_block.wavFormat.wChannels);
+	app_debug("wChannels = %d", info->fmt_block.wavFormat.wChannels);
 	info->fmt_block.wavFormat.dwSamplesPerSec 	= *(u32 *)&pdata[24];
-	snd_debug("dwSamplesPerSec = %d", info->fmt_block.wavFormat.dwSamplesPerSec);
+	app_debug("dwSamplesPerSec = %d", info->fmt_block.wavFormat.dwSamplesPerSec);
 	info->fmt_block.wavFormat.wBitsPerSample 	= *(u16 *)&pdata[34];
-	snd_debug("wBitsPerSample = %d", info->fmt_block.wavFormat.wBitsPerSample);
+	app_debug("wBitsPerSample = %d", info->fmt_block.wavFormat.wBitsPerSample);
 
 	int fact_offset;
 	int data_offset;
@@ -103,8 +92,8 @@ int main(char argc, char **argv)
 		info->fact_block.dwFactSize = 0;
 		data_offset = fact_offset;
 	}
-	snd_debug("data_offset = %d", data_offset);
-	snd_debug("fact_offset = %d", fact_offset);
+	app_debug("data_offset = %d", data_offset);
+	app_debug("fact_offset = %d", fact_offset);
 
 	info->data_block.dwDataSize = 
 	(pdata[data_offset + 4] & 0xff) 		|
@@ -112,7 +101,7 @@ int main(char argc, char **argv)
 	(pdata[data_offset + 6] & 0xff) << 16 	|
 	(pdata[data_offset + 7] & 0xff)	<< 24;
 
-	snd_debug("dwDataSize = %x", info->data_block.dwDataSize);
+	app_debug("dwDataSize = %x", info->data_block.dwDataSize);
 
 	dev_dsp = open("/dev/dsp", O_WRONLY);
 	if(dev_dsp < 0){
@@ -146,7 +135,7 @@ int main(char argc, char **argv)
 #define MIN(a,b) 	(likely(a < b) ? a : b)
 __Again:
 	if(lseek(src_wav, data_offset + 8, SEEK_SET) != data_offset + 8){
-		snd_debug("Error!\r\n");
+		app_debug("Error!\r\n");
 		exit(-1);
 	}
 
@@ -155,7 +144,7 @@ __Again:
 	while(remain){
 		status = read(src_wav, pdata, MIN(FRAME_LEN, remain));
 		if(unlikely(status != MIN(FRAME_LEN, remain))){
-			snd_debug("Error!\r\n");
+			app_debug("Error!\r\n");
 			exit(-1);
 		}
 	
@@ -258,7 +247,7 @@ __Again:
 
 		status = write(dev_dsp, pdata, MIN(FRAME_LEN, remain));
 		if(unlikely(status != MIN(FRAME_LEN, remain))){
-			snd_debug("write pdata failed! status = %d", status);
+			app_debug("write pdata failed! status = %d", status);
 			exit -1;
 		}else{
 			remain -= MIN(FRAME_LEN, remain);
@@ -308,6 +297,6 @@ static unsigned char request_instruction(void){
 	scanf("%d", &tmp);
 	printf("\r\n");
 	
-	snd_debug("tmp = %d",tmp);
+	app_debug("tmp = %d",tmp);
 	return tmp;
 }
