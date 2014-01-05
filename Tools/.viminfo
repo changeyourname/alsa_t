@@ -1,0 +1,1902 @@
+# 这个 viminfo 文件是由 Vim 7.3 所产生。
+# 如果想要自行修改请特别小心！
+
+# 文件被写的时候 ‘encoding’ 的值
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# 上个 Search 图案：
+~MSle0~/space
+
+# 最后替换的字符串
+$+ \2 (\1\/\2)
+
+# 命令行 历史记录 (从新到旧)：
+:qall
+:cs find f cri*
+:qal
+:cs find f bat_manage.c
+:cs find f *.h
+:!find -name list.h
+:cs find f list.h
+:wqall
+:w
+:edit ~/.vimrc
+:cs find f xgd_debug.h
+:edit xgd_app/bat_manage.c
+:cs find f<F5><F5><F5><F5><F5>
+:cs find f
+:set cst
+:cl
+:cn
+:b#
+:q
+:wm
+:wqal
+:cd ..
+:pwd
+:cd Downloads/
+:edit common/cmd_nand.c
+:edit drivers/mtd/nand/nand_bbt.c
+:tj mtd_info
+:/usr/include/x86_64-linux-gnu/bits/stdio
+:set mouse=a
+:set mouse
+:!edit drivers/mtd/nand/mxc_nand.c
+:!cd build/ && sh mk boot K320P debug
+:q!
+:edit drivers/mtd/nand/mxc_nand.c
+:!find -name scoop.o
+:!find -name scoop.c
+:set nu
+:edit ./drivers/gpio/gpiolib.c
+:!find -name gpiolib.c
+:set nonu
+:tj gpio_chip
+:tj  mxc_gpio_init
+:tj V
+:tj mx25_3stack_gpio_init
+:!tree . | grep gpio | grep lib
+:!find -name gpio_lib*
+:!find -name gpio*
+:tj mxc_register_gpios
+:wwqall
+:!ls ui_player.h
+:make
+:wq
+:edit downloader.cpp
+:set mouse=
+:tj page_count
+:qa
+:edit arch/arm/mach-mx25/mx25_3stack.c
+:!find -name mx25_3stack.c
+:qll
+:tj page
+:make clean
+:tj adns__parse_domain
+:tj vm_operations_struct 
+:tj audio_irq_request
+:!git diff --stat
+:tj snd_pcm_playback_avail
+:!find -name pcm_compat.o
+:!find -name dma_sdma.o
+:tj dma_list
+:cd 
+:!pwd
+:!whereis fish
+:tj snd_soc_device
+:edit new__tmp
+:tj st7565_init
+:!sh setup
+:edit /home/zhouyixing/Workspace/Uniform/pkernel/sound/soc/soc-core.c
+:tj snd_pcm_oss_f_reg
+:cd build/ && sh mk boot K320P debug
+:!find -name lcd.o
+:!find -name mx2fb.o
+:!find -name mx3fb.o
+:!find -name atmel_lcdfb.o
+:!find -name mx3fb.c
+:edit ./sound/soc/imx/imx-3stack-sgtl5000.c
+:!find -name *sgtl5000.c
+:tj snd_pcm_attach_substream
+:tj dev_sndthr_play
+:%!xxd
+:tj snd_pcm_oss_open_file
+:tj snd_pcm_oss_look_for_setup
+:tj soc_pcm_open
+:cw
+:tj snd_pcm_new
+:tj snd_device_new
+:edit sound/core/pcm_native.c
+:cp
+:!git remote -v
+:git remote -v
+:!git branch
+
+# 查找字符串 历史记录 (从新到旧)：
+?/space
+?/F5
+? ^-------
+?/WMToggle
+?/U_BOOT_CMD
+?/dump
+?/status
+?/light
+?/mxc_gpio_direction_output
+?/_set_gpio_direction
+?/__gpio_get_value
+?/chip->get
+?/gpiochip_add
+?/gpio_desc
+?/mxc_gpio_ports
+?/gpio_irq_handler
+? \<area\>
+?/cscope
+?/mouse
+?/INCPATH
+?/FLAGS
+?/qmake
+?/F10
+?/install
+?/appl_ptr
+?/vo
+?/ioctl
+?/g_volum
+?/transfer
+?/wait_for_avail_min
+?/snd_pcm_playback_avail
+?/avail
+?/status->hw_ptr
+?/proc_status_read
+?/snd_pcm_sync_ptr
+?/get_ptr
+?/new_hw_ptr
+?/pointer
+?/transfer_ack_begin
+?/mxc_dma_start
+?/mxc_sdma_channels
+?/num_of_bytes
+?/num_of_
+?/snd_pcm_do_stop
+?/SNDRV_PCM_TRIGGER_STOP
+?/snd_pcm_undo_start
+?/undo_action
+?/=
+?/prtd->active
+?/= 0
+?/system
+?/zhouyixing
+?/HZ
+?/MTzhou
+?/runtime->oss.prepare = 1
+?/runtime->oss.prepare
+?/=\ pcm->private_data
+?/\ pcm->private_data
+?/set_ops
+?/ready
+?/runtime->oss.params\ 
+?/runtime->oss.params
+?/1
+?/oss.params
+?/prepare
+?/st7565_init
+?/st7565_write_cmd
+?/st7565
+?/pri
+?/open
+?/dai
+?/ops->open
+?/snd_pcm_oss_open
+?/data_block
+?/substream->ops->open
+?/snd_device_new
+?/snd_pcm_oss_f_reg
+?/prefer_subdevice
+?/substream
+?/ref_count
+?/pcm_oss_file
+?/func
+?/LIN
+? ^\s*\d
+?/proc_done
+?/free_setup
+?/setup_list
+?/proc/asound/card0/pcm0c/
+?/snd_pcm_oss_proc_read
+?/trans
+?/write
+?/init
+?/slots
+?/cpu_
+?/instan
+?/imx_pcm_pointer
+?/scan_bbt
+?/block_bad
+?/block_badv
+?/bad
+
+# 表达式 历史记录 (从新到旧)：
+=acp#onPopupPost()
+
+# 输入行 历史记录 (从新到旧)：
+@*.c
+@/home/zhouyixing/Workspace/Uniform/pboot/drivers/mtd/
+@block_bad
+@/home/zhouyixing/Workspace/Uniform/pboot/drivers/
+@block_isbad
+@*.c *.h
+@NAND_BBT_PERCHIP
+@scan_bbt
+@NAND_BBT_SCAN2NDPAGE
+@NAND_BBT_SCANALLPAGES
+@ECC Size
+@/home/zhouyixing/Workspace/Uniform/pkernel/drivers/gpio
+@gpio_desc
+@ARCH_NR_GPIOS
+@/home/zhouyixing/Workspace/Uniform/pkernel/sound/
+@audio_irq
+@snd_pcm_lib_write_transfer
+@sound_pcm_volume
+@/home/zhouyixing/Workspace/Uniform/pkernel/sound
+@g_volum
+@snd_pcm_playback_avail
+@status->hw_ptr
+@transfer_ack_begin
+@SNDRV_PCM_TRIGGER_STOP
+@->active
+@dma_active
+@runtime->oss.prepare = 1
+@snd_pcm_oss_runtime
+@runtime->oss.prepare
+@MTzhou
+@pcm->private_data
+@set_ops
+@*.c 
+@runtime->oss.params
+@prepare
+@/home/zhouyixing/Workspace/Uniform/pboot/
+@lcd_ctrl_init
+@oss->params
+@*.h
+@/home/zhouyixing/Workspace/Uniform/pkernel/
+@XGD_SOUND_PA_CTRL
+@substream->ops->open
+@ref_count
+@ref
+@substream_count
+@/home/zhouyixing/Workspace/Uniform/pkernel
+@setup_list
+@->disable
+@\.disable
+@.disable
+@pcm_devs
+@soc_codec_dev_sgtl5000
+@/home/zhouyixing/Workspace/Uniform/pkerne
+@imx_ssi_dai
+@ar
+@snd_card_create
+@/home/zhouyixing/Workspace/Uniform/pkernel/sound/soc/codecs/
+@/home/zhouyixing/Workspace/Uniform/pkernel/sound/core/
+@SNDRV_PCM_INFO_MMAP
+@snd_pcm_lib_preallocate_pages_for_all
+@runtime->hw
+@snd_device_new
+@ops->prepare
+@substream->ops->prepare
+@init_yushun_ili9341
+@/home/zhouyixing/Workspace/Uniform/pkernel/drivers/
+@period_bytes
+@*.o
+@platform->pcm_ops->mmap
+@platform->pcm_ops->trigger
+@platform->ops->mmap
+@imx_pcm_ops
+@ops->trigger
+@platform->ops->trigger
+@*
+@snd_pcm_start
+@->trigger
+@dsp_map\[
+@dsp_map[
+@snd_pcm_notify
+@snd_pcm_notify_list
+@chains
+@snd_soc_init_card
+@snd_card_register
+@snd_device_register_all
+@snd_device_register
+@dev_register
+@n_register
+@reg_cache_size
+@sound
+@dev_attr_codec_reg
+@codec_dev->probe
+@static<F7><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12><F12>
+@sgtl5000-i2c
+@snd_soc_card_imx_3stack
+@register_chrdev
+@mxc_dma_callback_set
+@mxc_dma_request
+@mxc_sdma_ssi1_16bit_tx0_params
+@SNDRV_PCM_IOCTL_HW_REFINE_OLD
+
+# 输入行 历史记录 (从新到旧)：
+
+# 寄存器:
+"0	LINE	0
+	nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<cr><cr>
+""1	LINE	0
+	nmap <silent> <F5> :cs find f
+"2	LINE	0
+	" nnoremap <silent> <F5> :b#<CR>
+"4	LINE	0
+	" Visual Mark
+	" 2005-10-27, brian wang
+	"
+	" Acknowledgements:
+	"   - Thanks to Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script more plugin-like :-)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script adapt to
+	"     dark/light backgrounds
+	"   - Thanks to Evgeny Filatov for noticing a nasty bug in Vm_get_line_number :-)
+	
+	if exists("loaded_VisualMark")
+	  finish
+	endif
+	let loaded_VisualMark = 1
+	if !has("signs")
+	 echoerr "***sorry*** [".expand("%")."] your vim doesn't support signs"
+	 finish
+	endif
+	
+	if &bg == "dark"
+	 highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+	else
+	 highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+	endif
+	
+	" ---------------------------------------------------------------------
+	"  Public Interface:
+	if !hasmapto('<Plug>Vm_toggle_sign')
+	  map <unique> <c-F2> <Plug>Vm_toggle_sign
+	  map <silent> <unique> mm <Plug>Vm_toggle_sign 
+	endif
+	nnoremap <silent> <script> <Plug>Vm_toggle_sign	:call Vm_toggle_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_next_sign')
+	  " map <unique> <F2> <Plug>Vm_goto_next_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_next_sign	:call Vm_goto_next_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_prev_sign')
+	  map <unique> <s-F2> <Plug>Vm_goto_prev_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_prev_sign	:call Vm_goto_prev_sign()<cr>
+	
+	" ---------------------------------------------------------------------
+	"  GetVimCmdOutput:
+	" Stole from Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"  to ease the scripts dependency issue
+	fun! s:GetVimCmdOutput(cmd)
+	"  call Dfunc("GetVimCmdOutput(cmd.".a:cmd.">)")
+	
+"5	LINE	0
+	" Visual Mark
+	" 2005-10-27, brian wang
+	"
+	" Acknowledgements:
+	"   - Thanks to Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script more plugin-like :-)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script adapt to
+	"     dark/light backgrounds
+	"   - Thanks to Evgeny Filatov for noticing a nasty bug in Vm_get_line_number :-)
+	
+	if exists("loaded_VisualMark")
+	  finish
+	endif
+	let loaded_VisualMark = 1
+	if !has("signs")
+	 echoerr "***sorry*** [".expand("%")."] your vim doesn't support signs"
+	 finish
+	endif
+	
+	if &bg == "dark"
+	 highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+	else
+	 highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+	endif
+	
+	" ---------------------------------------------------------------------
+	"  Public Interface:
+	if !hasmapto('<Plug>Vm_toggle_sign')
+	  map <unique> <c-F2> <Plug>Vm_toggle_sign
+	  map <silent> <unique> mm <Plug>Vm_toggle_sign 
+	endif
+	nnoremap <silent> <script> <Plug>Vm_toggle_sign	:call Vm_toggle_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_next_sign')
+	  " map <unique> <F2> <Plug>Vm_goto_next_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_next_sign	:call Vm_goto_next_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_prev_sign')
+	  map <unique> <s-F2> <Plug>Vm_goto_prev_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_prev_sign	:call Vm_goto_prev_sign()<cr>
+	
+	" ---------------------------------------------------------------------
+	"  GetVimCmdOutput:
+	" Stole from Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"  to ease the scripts dependency issue
+	fun! s:GetVimCmdOutput(cmd)
+	"  call Dfunc("GetVimCmdOutput(cmd.".a:cmd.">)")
+	
+"6	LINE	0
+	" Visual Mark
+	" 2005-10-27, brian wang
+	"
+	" Acknowledgements:
+	"   - Thanks to Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script more plugin-like :-)
+	"   - Thanks to Mr. Charles E. Campbell, Jr. for making this script adapt to
+	"     dark/light backgrounds
+	"   - Thanks to Evgeny Filatov for noticing a nasty bug in Vm_get_line_number :-)
+	
+	if exists("loaded_VisualMark")
+	  finish
+	endif
+	let loaded_VisualMark = 1
+	if !has("signs")
+	 echoerr "***sorry*** [".expand("%")."] your vim doesn't support signs"
+	 finish
+	endif
+	
+	if &bg == "dark"
+	 highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+	else
+	 highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+	endif
+	
+	" ---------------------------------------------------------------------
+	"  Public Interface:
+	if !hasmapto('<Plug>Vm_toggle_sign')
+	  map <unique> <c-F2> <Plug>Vm_toggle_sign
+	  map <silent> <unique> mm <Plug>Vm_toggle_sign 
+	endif
+	nnoremap <silent> <script> <Plug>Vm_toggle_sign	:call Vm_toggle_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_next_sign')
+	  " map <unique> <F2> <Plug>Vm_goto_next_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_next_sign	:call Vm_goto_next_sign()<cr>
+	
+	if !hasmapto('<Plug>Vm_goto_prev_sign')
+	  map <unique> <s-F2> <Plug>Vm_goto_prev_sign
+	endif
+	nnoremap <silent> <script> <Plug>Vm_goto_prev_sign	:call Vm_goto_prev_sign()<cr>
+	
+	" ---------------------------------------------------------------------
+	"  GetVimCmdOutput:
+	" Stole from Hari Krishna Dara's genutils.vim (http://vim.sourceforge.net/scripts/script.php?script_id=197)
+	"  to ease the scripts dependency issue
+	fun! s:GetVimCmdOutput(cmd)
+	"  call Dfunc("GetVimCmdOutput(cmd.".a:cmd.">)")
+	
+"-	CHAR	0
+	" 
+
+# 文件标记:
+'0  35  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+'1  1  0  ~/Workspace/Uniform/pboot/include/linux/list.h
+'2  79  27  ~/.vimrc
+'3  192  1  ~/.vimrc
+'4  143  6  ~/.vim/plugin/lookupfile.vim
+'5  194  0  ~/.vimrc
+'6  10  0  ~/.vim/.netrwhist
+'7  165  0  ~/.vimrc
+'8  1  0  ~/.vimrc
+'9  140  0  ~/.vimrc
+
+# 跳转列表 (从新到旧):
+-'  35  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1  0  ~/Workspace/Uniform/pboot/include/linux/list.h
+-'  79  27  ~/.vimrc
+-'  32  1  ~/.vimrc
+-'  31  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  8  17  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  192  1  ~/.vimrc
+-'  1  1  ~/.vimrc
+-'  194  0  ~/.vimrc
+-'  143  6  ~/.vim/plugin/lookupfile.vim
+-'  1  0  ~/.vim/plugin/lookupfile.vim
+-'  148  0  ~/.vimrc
+-'  165  1  ~/.vimrc
+-'  11  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1  0  ~/Workspace/Uniform/pboot/include/configs/mx25_3stack.h
+-'  1  0  ~/Workspace/Uniform/pboot/include/watchdog.h
+-'  10  17  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  14  21  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1697  0  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  10  0  ~/.vim/.netrwhist
+-'  1  0  ~/.vim/.netrwhist
+-'  1  0  /usr/include/malloc.h
+-'  1610  6  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1593  4  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1278  8  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  1257  4  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  28  12  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  207  0  ~/.vimrc
+-'  189  0  ~/.vimrc
+-'  115  1  ~/.vimrc
+-'  7  16  ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+-'  38  4  ~/__Tag_List__
+-'  40  4  ~/__Tag_List__
+-'  2  0  ~/__Tag_List__
+-'  140  0  ~/.vimrc
+-'  102  0  ~/.vimrc
+-'  68  4  ~/.vimrc
+-'  64  0  ~/.vimrc
+-'  47  4  ~/.vimrc
+-'  44  4  ~/.vimrc
+-'  57  0  ~/.vimrc
+-'  48  15  ~/.vimrc
+-'  84  6  ~/.vimrc
+-'  9  0  ~/.vimrc
+-'  172  0  ~/.vimrc
+-'  134  0  /boot/grub/grub.cfg
+-'  1  0  /boot/grub/grub.cfg
+-'  458  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  2686  23  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  556  18  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  1292  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  559  18  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  508  0  ~/Workspace/Uniform/pboot/common/cmd_nand.c
+-'  1409  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  558  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  1411  21  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  1309  13  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  1297  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  552  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  2613  22  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  3217  25  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  2607  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+-'  52  0  ~/Workspace/Uniform/pboot/include/nand.h
+-'  582  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  147  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  197  0  ~/Workspace/Uniform/pboot/include/linux/mtd/nand.h
+-'  19  0  ~/Workspace/Uniform/pboot/include/linux/mtd/compat.h
+-'  76  0  ~/Workspace/Uniform/pboot/include/linux/mtd/bbm.h
+-'  1196  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  157  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  31  0  ~/Workspace/Uniform/pboot/include/asm-arm/arch-mx25/mxc_nand.h
+-'  168  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  129  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  160  49  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  1197  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  595  13  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  161  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  326  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  594  13  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  571  24  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  66  0  ~/Workspace/Uniform/pboot/include/linux/mtd/bbm.h
+-'  598  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  1199  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  579  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  1192  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  1194  10  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  64  0  ~/Workspace/Uniform/pboot/include/linux/mtd/bbm.h
+-'  581  24  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  1195  0  ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+-'  628  5  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  1089  12  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  72  0  ~/Workspace/Uniform/pboot/include/linux/mtd/bbm.h
+-'  1085  30  ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+-'  80  1  ~/Workspace/Uniform/pboot/common/cmd_nand.c
+-'  611  0  ~/Workspace/Uniform/pboot/include/common.h
+-'  133  0  ~/Workspace/Uniform/pboot/include/linux/mtd/mtd.h
+
+# 文件内的标记历史记录 (从新到旧):
+
+> ~/Workspace/Uniform/pboot/xgd_app/bat_manage.c
+	"	35	0
+
+> ~/Workspace/Uniform/pboot/include/linux/list.h
+	"	1	0
+
+> ~/Workspace/Uniform/pboot/-MiniBufExplorer-
+	"	1	26
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/.vimrc
+	"	79	27
+	^	79	28
+	.	79	27
+	+	199	0
+	+	121	20
+	+	120	27
+	+	141	32
+	+	136	0
+	+	140	1
+	+	138	1
+	+	134	26
+	+	142	0
+	+	141	1
+	+	141	0
+	+	138	0
+	+	139	1
+	+	138	2
+	+	139	2
+	+	120	27
+	+	137	22
+	+	141	25
+	+	137	23
+	+	141	25
+	+	193	8
+	+	193	0
+	+	193	0
+	+	138	2
+	+	120	27
+	+	184	0
+	+	184	0
+	+	62	2
+	+	128	32
+	+	138	0
+	+	120	2
+	+	138	2
+	+	120	0
+	+	145	4
+	+	184	0
+	+	188	0
+	+	191	0
+	+	187	0
+	+	184	0
+	+	190	0
+	+	184	0
+	+	194	0
+	+	74	0
+	+	115	2
+	+	116	2
+	+	115	0
+	+	195	7
+	+	197	7
+	+	198	7
+	+	46	1
+	+	25	4
+	+	24	6
+	+	25	5
+	+	30	5
+	+	19	4
+	+	46	6
+	+	47	4
+	+	84	0
+	+	47	4
+	+	47	0
+	+	84	3
+	+	85	2
+	+	95	1
+	+	96	1
+	+	97	1
+	+	96	2
+	+	98	1
+	+	99	2
+	+	100	2
+	+	101	2
+	+	102	2
+	+	140	0
+	+	198	0
+	+	210	0
+	+	198	0
+	+	115	0
+	+	184	0
+	+	189	0
+	+	192	0
+	+	191	1
+	+	192	14
+	+	191	0
+	+	192	0
+	+	78	27
+	+	79	27
+	k	144	3
+	w	139	2
+
+> ~/Workspace/Uniform/pboot/__Tag_List__
+	"	38	4
+	.	39	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	313	0
+	+	312	0
+	+	214	0
+	+	214	0
+	+	214	0
+	+	214	0
+	+	214	0
+	+	214	0
+	+	213	0
+	+	176	0
+	+	176	0
+	+	176	0
+	+	176	0
+	+	175	0
+	+	137	0
+	+	77	0
+	+	39	0
+
+> ~/.vim/plugin/lookupfile.vim
+	"	143	6
+
+> ~/Workspace/Uniform/pboot/include/configs/mx25_3stack.h
+	"	1	0
+
+> ~/Workspace/Uniform/pboot/include/watchdog.h
+	"	1	0
+
+> ~/.vim/.netrwhist
+	"	10	0
+
+> /usr/include/malloc.h
+	"	1	0
+
+> ~/__Tag_List__
+	"	38	4
+	.	39	0
+	+	895	0
+	+	862	0
+	+	861	0
+	+	825	0
+	+	789	0
+	+	754	0
+	+	753	0
+	+	714	0
+	+	676	0
+	+	638	0
+	+	600	0
+	+	562	0
+	+	524	0
+	+	486	0
+	+	449	0
+	+	411	0
+	+	373	0
+	+	335	0
+	+	297	0
+	+	259	0
+	+	256	0
+	+	253	0
+	+	250	0
+	+	247	0
+	+	244	0
+	+	241	0
+	+	238	0
+	+	235	0
+	+	232	0
+	+	229	0
+	+	191	0
+	+	153	0
+	+	116	0
+	+	115	0
+	+	77	0
+	+	40	0
+	+	39	0
+
+> ~/-MiniBufExplorer-
+	"	1	0
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/[File List]
+	"	5	0
+	.	3	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	71	0
+	+	3	0
+
+> /boot/grub/grub.cfg
+	"	134	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_bbt.c
+	"	1292	0
+
+> ~/Workspace/Uniform/pboot/include/linux/mtd/nand.h
+	"	197	0
+
+> ~/Workspace/Uniform/pboot/include/linux/mtd/compat.h
+	"	19	0
+
+> ~/Workspace/Uniform/pboot/include/linux/mtd/bbm.h
+	"	76	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/nand/mxc_nand.c
+	"	1409	0
+	^	66	24
+	.	1375	0
+	+	66	0
+	+	1375	0
+
+> ~/Workspace/Uniform/pboot/common/cmd_nand.c
+	"	508	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_base.c
+	"	458	0
+
+> ~/Workspace/Uniform/pboot/include/nand.h
+	"	52	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/mtdpart.c
+	"	295	0
+
+> ~/Workspace/Uniform/pboot/[Lookup File]
+	"	1	0
+	^	1	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_device_info.h
+	"	21	0
+
+> ~/Workspace/Uniform/pboot/drivers/mtd/nand/nand_device_info.c
+	"	2279	25
+
+> ~/Workspace/Uniform/pboot/include/asm-arm/arch-mx25/mxc_nand.h
+	"	31	0
+
+> ~/Workspace/Uniform/pboot/include/common.h
+	"	611	0
+
+> ~/Workspace/Uniform/pboot/include/linux/mtd/mtd.h
+	"	133	0
+
+> ~/Workspace/Uniform/pkernel/drivers/mtd/nand/mxc_nd.c
+	"	56	0
+
+> ~/Workspace/Uniform/pkernel/drivers/mtd/nand/mxc_nd2.c
+	"	113	0
+
+> ~/Workspace/Uniform/pkernel/-MiniBufExplorer-
+	"	1	12
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> /usr/include/x86_64-linux-gnu/bits/stdio2.h
+	"	146	0
+	.	146	0
+	+	140	0
+	+	146	0
+
+> ~/Workspace/A9/mk
+	"	21	0
+
+> ~/Workspace/A9/__Tag_List__
+	"	3	0
+	.	12	0
+	+	18	0
+	+	15	0
+	+	12	0
+
+> ~/Workspace/A9/-MiniBufExplorer-
+	"	1	7
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Workspace/A9/Makefile
+	"	1	0
+
+> ~/Workspace/A9/bootable/bootloader/uboot-imx/mkconfig
+	"	29	1
+	^	29	2
+	.	29	1
+	+	29	1
+
+> ~/config-3.8.0-34-generic
+	"	5037	0
+
+> /usr/lib/python2.7/keyword.py
+	"	10	4
+
+> /usr/lib/python2.7/__Tag_List__
+	"	5	4
+	.	6	0
+	+	6	0
+
+> /usr/lib/python2.7/-MiniBufExplorer-
+	"	1	15
+	.	2	0
+	+	2	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/plat-mxc/gpio.c
+	"	316	11
+	.	188	0
+	+	188	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/mach-mx25/devices.c
+	"	421	0
+
+> ~/Workspace/Uniform/pkernel/include/asm-generic/gpio.h
+	"	104	0
+
+> ~/Workspace/Uniform/pkernel/drivers/gpio/gpiolib.c
+	"	1059	0
+	.	838	0
+	+	840	0
+	+	838	0
+
+> ~/Workspace/Uniform/pkernel/__Tag_List__
+	"	74	4
+	.	83	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	435	0
+	+	433	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	326	0
+	+	325	0
+	+	325	0
+	+	325	0
+	+	325	0
+	+	325	0
+	+	325	0
+	+	325	0
+	+	324	0
+	+	314	0
+	+	314	0
+	+	314	0
+	+	313	0
+	+	224	0
+	+	221	0
+	+	175	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	130	0
+	+	129	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	84	0
+	+	83	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/mach-mx2/pcm970-baseboard.c
+	"	105	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/common/scoop.c
+	"	228	0
+
+> ~/Workspace/Uniform/pkernel/kernel/irq/chip.c
+	"	510	22
+
+> ~/Workspace/Uniform/pkernel/kernel/irq/handle.c
+	"	376	1
+	^	376	16
+	.	376	0
+	+	376	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/mach-mx25/mx25_3stack_gpio.c
+	"	230	0
+
+> ~/Workspace/Uniform/pkernel/arch/arm/plat-mxc/include/mach/gpio.h
+	"	46	0
+
+> ~/.xsession-errors
+	"	41	0
+
+> ~/mypython/expression.py
+	"	6	17
+	.	9	0
+	+	7	21
+	+	8	44
+	+	9	0
+
+> ~/mypython/__Tag_List__
+	"	3	0
+	.	4	0
+	+	13	0
+	+	10	0
+	+	7	0
+	+	4	0
+
+> ~/mypython/-MiniBufExplorer-
+	"	1	18
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Softwares/funplayer_0.14-1_src/Makefile
+	"	39	0
+	^	19	11
+	.	19	10
+	+	18	176
+	+	17	64
+	+	18	214
+	+	20	9
+	+	13	14
+	+	13	0
+	+	20	17
+	+	21	8
+	+	20	9
+	+	21	43
+	+	22	49
+	+	23	50
+	+	24	11
+	+	25	51
+	+	28	35
+	+	25	52
+	+	26	47
+	+	18	57
+	+	19	10
+
+> ~/Softwares/funplayer_0.14-1_src/__Tag_List__
+	"	11	4
+	.	41	0
+	+	411	0
+	+	403	0
+	+	363	0
+	+	355	0
+	+	338	0
+	+	330	0
+	+	291	0
+	+	291	0
+	+	291	0
+	+	291	0
+	+	291	0
+	+	290	0
+	+	285	0
+	+	247	0
+	+	242	0
+	+	237	0
+	+	232	0
+	+	192	0
+	+	153	0
+	+	152	0
+	+	121	0
+	+	81	0
+	+	41	0
+
+> ~/Softwares/funplayer_0.14-1_src/-MiniBufExplorer-
+	"	1	13
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Softwares/funplayer_0.14-1_src/player.cpp
+	"	2	21
+
+> ~/Softwares/funplayer_0.14-1_src/main.cpp
+	"	9	10
+	^	9	11
+	.	9	10
+	+	1	10
+	+	9	10
+
+> ~/Softwares/funplayer_0.14-1_src/downloader.cpp
+	"	7	0
+
+> ~/Softwares/funplayer_0.14-1_src/downloader.h
+	"	35	4
+	^	4	20
+	.	4	10
+	+	4	10
+
+> ~/Softwares/QT-5/5.1.1/gcc_64/include/QtWidgets/QWidget
+	"	1	0
+
+> ~/.profile
+	"	36	22
+	^	36	23
+	.	36	22
+	+	20	0
+	+	38	0
+	+	21	10
+	+	24	87
+	+	25	26
+	+	26	31
+	+	27	0
+	+	24	107
+	+	29	37
+	+	30	0
+	+	29	2
+	+	30	15
+	+	31	21
+	+	29	1
+	+	34	6
+	+	35	0
+	+	32	3
+	+	35	16
+	+	36	22
+
+> ~/Softwares/QT-5/5.1.1/gcc_64/bin/__Tag_List__
+	"	3	0
+	.	4	0
+	+	4	0
+
+> ~/Softwares/QT-5/5.1.1/gcc_64/bin/-MiniBufExplorer-
+	"	1	13
+	.	2	0
+	+	2	0
+
+> ~/下载/Makefile
+	"	242	36
+
+> ~/下载/__Tag_List__
+	"	39	4
+	.	40	0
+	+	40	0
+
+> ~/下载/-MiniBufExplorer-
+	"	1	13
+	.	2	0
+	+	2	0
+
+> ~/下载/funPlayer.pro
+	"	1	0
+
+> ~/Workspace/Uniform/pkernel/include/linux/mm.h
+	"	299	45
+
+> ~/Workspace/Uniform/pkernel/arch/arm/include/asm/page.h
+	"	72	10
+
+> ~/Workspace/Uniform/pkernel/arch/arm/mach-mx25/mx25_3stack.c
+	"	990	21
+
+> ~/Workspace/Uniform/pkernel/include/linux/input.h
+	"	125	0
+
+> ~/Workspace/alsa_t/wav_beep
+	"	1	0
+
+> /etc/exports
+	"	12	43
+	^	12	44
+	.	12	19
+	+	12	19
+
+> /etc/samba/smb.conf
+	"	343	0
+	.	346	15
+	+	338	12
+	+	347	52
+	+	339	0
+	+	347	0
+	+	346	15
+
+> ~/Softwares/larbin/larbin-2.6.3/adns/internal.h
+	"	569	0
+
+> ~/Softwares/larbin/larbin-2.6.3/adns/parse.c
+	"	113	0
+
+> ~/Softwares/larbin/larbin-2.6.3/-MiniBufExplorer-
+	"	1	36
+	.	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+	+	2	0
+
+> ~/Softwares/larbin/larbin-2.6.3/parse.c
+	"	1	0
+
+> ~/Softwares/larbin/larbin-2.6.3/types.c
+	"	1	0
+
+> ~/Softwares/larbin/larbin-2.6.3/configure
+	"	9	0
+
+> ~/Softwares/larbin/larbin-2.6.3/__Tag_List__
+	"	3	0
+	.	7	0
+	+	13	0
+	+	7	0
+
+> ~/Workspace/alsa_t/Makefile
+	"	1	0
+	^	10	15
+	.	1	0
+	+	1	0
+
+> ~/Workspace/alsa_t/__Tag_List__
+	"	3	0
+	.	7	0
+	+	14	0
+	+	7	0
+
+> ~/Workspace/alsa_t/-MiniBufExplorer-
+	"	1	13
+	.	2	0
+	+	2	0
+	+	2	0
+
+> /usr/lib/libiconv.so.2
+	"	2350	0
+
+> /usr/lib/libiconv.so.2.5.1
+	"	2350	0
+	^	2350	1
+	.	2350	1
+	+	2350	1
+
+> /usr/lib/-MiniBufExplorer-
+	"	1	17
+	.	2	0
+	+	2	0
+	+	2	0
+
+> ~/Softwares/lwqq/build/Makefile
+	"	67	0
+
+> ~/Softwares/lwqq/build/__Tag_List__
+	"	11	4
+	.	12	0
+	+	12	0
+
+> ~/Softwares/lwqq/build/-MiniBufExplorer-
+	"	1	13
+	.	2	0
+	+	2	0
+
+> ~/Softwares/lwqq/build/cmake_install.cmake
+	"	1	0
+
+> ~/Workspace/Uniform/pkernel/include/sound/pcm.h
+	"	566	0
+
+> ~/Workspace/Uniform/pkernel/sound/core/oss/pcm_oss.c
+	"	2714	0
+	.	2071	0
+	+	2874	46
+	+	2284	45
+	+	2275	0
+	+	2278	0
+	+	2265	0
+	+	2278	49
+	+	2275	47
+	+	2275	0
+	+	3027	0
+	+	3065	0
+	+	3029	0
+	+	2284	0
+	+	3027	0
+	+	3029	0
+	+	3065	0
+	+	2275	0
+	+	2278	0
+	+	3181	0
+	+	2373	47
+	+	2374	0
+	+	2373	25
+	+	2375	0
+	+	2374	0
+	+	2391	0
+	+	2390	0
+	+	2373	0
+	+	2379	48
+	+	2379	0
+	+	2379	32
+	+	2376	35
+	+	2377	8
+	+	2379	0
+	+	2377	0
+	+	2378	0
+	+	2377	62
+	+	2378	31
+	+	2278	0
+	+	2374	0
+	+	2374	0
+	+	2278	0
+	+	2277	45
+	+	2278	0
+	+	2279	0
+	+	2278	43
+	+	2270	23
+	+	2271	0
+	+	2272	0
+	+	2276	0
+	+	2277	39
+	+	2284	0
+	+	2284	0
+	+	2465	47
+	+	2457	33
+	+	2460	0
+	+	2461	0
+	+	2458	0
+	+	2460	0
+	+	2461	32
+	+	2464	0
+	+	2465	0
+	+	2462	0
+	+	2464	0
+	+	2465	0
+	+	2460	63
+	+	2464	54
+	+	2460	54
+	+	2458	0
+	+	2275	0
+	+	2464	0
+	+	2464	0
+	+	2462	0
+	+	2378	0
+	+	2377	0
+	+	2374	0
+	+	2391	0
+	+	2271	0
+	+	2275	0
+	+	2277	0
+	+	2278	0
+	+	2284	0
+	+	2458	0
+	+	2460	0
+	+	2462	0
+	+	2464	0
+	+	2544	0
+	+	2345	0
+	+	2396	1
+	+	2397	40
+	+	2398	32
+	+	2386	33
+	+	1151	48
+	+	1157	0
+	+	1081	0
+	+	1082	0
+	+	1557	0
+	+	1563	0
+	+	1718	0
+	+	1731	0
+	+	2049	0
+	+	2071	0
+
+> ~/Workspace/Uniform/pkernel/sound/core/pcm_lib.c
+	"	1873	2
+	^	1741	3
+	.	1773	0
+	+	1760	15
+	+	1758	28
+	+	1763	37
+	+	1764	26
+	+	1767	57
+	+	1744	0
+	+	1773	49
+	+	1774	28
+	+	1775	57
+	+	1776	46
+	+	1777	16
+	+	1775	60
+	+	1782	6
+	+	1782	10
+	+	1782	10
+	+	1778	14
+	+	1779	44
+	+	1780	17
+	+	1781	15
+	+	1783	35
+	+	1784	17
+	+	1785	15
+	+	1787	0
+	+	1792	13
+	+	1793	52
+	+	1795	22
+	+	1800	10
+	+	1800	10
+	+	1805	0
+	+	1791	54
+	+	1815	52
+	+	1773	52
+	+	1793	60
+	+	1794	13
+	+	1795	16
+	+	1796	23
+	+	1797	45
+	+	1798	17
+	+	1799	15
+	+	1800	10
+	+	1806	21
+	+	1801	28
+	+	1802	17
+	+	1803	15
+	+	1801	14
+	+	1806	37
+	+	1807	26
+	+	1815	57
+	+	1740	27
+	+	1743	0
+	+	1740	28
+	+	1742	0
+	+	1743	0
+	+	1740	0
+	+	1742	3
+	+	1742	0
+	+	1742	8
+	+	1742	53
+	+	1740	68
+	+	1766	4
+	+	1766	9
+	+	1772	4
+	+	1815	0
+	+	1766	4
+	+	1766	4
+	+	1772	0
+	+	1740	0
+	+	1742	0
+	+	1740	0
+	+	1809	4
+	+	1791	57
+	+	1809	4
+	+	1728	0
+	+	1734	20
+	+	1734	0
+	+	1817	0
+	+	1738	0
+	+	1737	0
+	+	1734	0
+	+	1738	0
+	+	1737	0
+	+	2242	0
+	+	1748	26
+	+	1773	0
+	+	1748	19
+	+	1773	27
+	+	1748	27
+	+	1734	0
+	+	1735	0
+	+	1738	0
+	+	1743	0
+	+	1740	67
+	+	1742	0
+	+	1741	0
+	+	1734	0
+	+	1735	0
+	+	1738	0
+	+	1743	0
+	+	1748	0
+	+	1773	0
+
+> ~/Workspace/Uniform/pkernel/sound/core/pcm_native.c
+	"	2940	0
+	.	2029	0
+	+	2032	0
+	+	2029	0
