@@ -137,7 +137,7 @@ let g:NERDTreeQuitOnOpen=1
 let g:winManagerWidth=20
 " let g:winManagerWindowLayout='FileExplorer|TagList'  
 " let g:winManagerWindowLayout='FileExplorer|BufExplorer'  
-nmap wm :WMToggle<cr>  
+nmap <silent> wm :WMToggle<cr>  
 let g:AutoOpenWinManager=1
 
 " cscope.vim
@@ -181,16 +181,21 @@ function! RunShell(Msg, Shell)
 	echon 'done'
 endfunction
 
-nmap  <F2> :TlistToggle<cr>
+vnoremap <C-c> "+y
+vnoremap <C-v> "+y
+" nmap  <F2> :TlistToggle<cr>
 " nmap  <F3> :NERDTreeToggle<cr>
 " nmap  <F4> :MRU<cr>
 nnoremap <silent> <F3> :bp<CR>
 nnoremap <silent> <F4> :bn<CR>
 " nnoremap <silent> <F5> :b#<CR>
-nnoremap <silent> <F6> :Rgrep<CR>
-nmap  <F5> <Plug>LookupFile<cr>
+" nmap  <F5> <Plug>LookupFile<cr>
+" nnoremap <silent> <F5> :Rgrep<CR>
 " nmap  <F6> :vimgrep /<C-R>=expand("<cword>")<cr>/ **/*.c **/*.h<cr><C-o>:cw<cr>
-nmap  <F7> :WMToggle<cr>
+" nmap  <F7> :WMToggle<cr>
+nmap  <F6> :cp<cr>
+nmap  <F7> :cl<cr>
+nmap  <F8> :cn<cr>
 nnoremap <silent> <F9> :bd<CR>
 nmap <C-F10> :call RunShell("Generate tags", "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .")<cr>
 " nmap <F10> :call HLUDSync()<cr>
