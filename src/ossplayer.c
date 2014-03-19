@@ -122,8 +122,8 @@ int main(char argc, char **argv)
 
 #define SNDCTL_DSP_LIBDEV_VERSION   _SIOR ('P', 25, int)
 #define SOUND_PCM_LIBDEV_VERSION    SNDCTL_DSP_LIBDEV_VERSION
-	arg = 179;
-	status = ioctl(dev_dsp, SOUND_PCM_LIBDEV_VERSION, &arg);
+	// arg = 179;
+	// status = ioctl(dev_dsp, SOUND_PCM_LIBDEV_VERSION, &arg);
 
 	if(machine.type == G810){
 		arg = volum_to_freq(volum);

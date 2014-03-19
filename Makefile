@@ -1,12 +1,17 @@
-BUILD_PWD := $(shell /bin/pwd)
-
 ifeq ("PC", "${ARCH}")
-CC=gcc
+COMPILES ?=
 else
-CC=arm-none-linux-gnueabi-gcc
+COMPILES ?= arm-none-linux-gnueabi-
 endif
 
-CPPFLAGS +=-I${BUILD_PWD}/include/
+CC :=gcc
+LD :=ld
+MAKE ?= /usr/bin/make
+
+BUILD_PWD := $(shell /bin/pwd)
+include ${BUILD_PWD}/scripts/Kbuild.include
+
+CPPFLAGS +=-I${BUILD_PWD}/include
 ifneq ("RELEASE", "${MODE}")
 CPPFLAGS +=-DAPP_DEBUG
 CPPFLAGS +=-rdynamic
@@ -15,30 +20,37 @@ else
 CPPFLAGS +=-O2
 endif
 
-head_file =asound.h
-head_file +=deftype.h
-head_file +=soundcard.h
-head_file +=wav_beep.h
-head_file +=wav.h
-head_file +=app_debug.h
-head_file +=machine.h
-make_file =Makefile
-c_obj =ossplayer.o 
-c_obj +=machine.o 
-c_obj +=app_debug.o
+tools-path := ${BUILD_PWD}/Tools/
+src-path 	:= ${BUILD_PWD}/src/
+main-path 	:= ${BUILD_PWD}/main/
 
-ossplayer: ${c_obj} 
-	${CC} -Wl,-Map=ossplayer.map ${CPPFLAGS} ${LDFLAGS} -o $@ ${c_obj}
+ossplayer-dirs := $(patsubst %/,%,$(filter %/, $(tools-y) $(src-y) $(main-y)))
 
-${c_obj}: %.o:%.c h.obj m.obj
-	${CC} -c ${CPPFLAGS} ${LDFLAGS} $< -o $@
+tools-y	:= $(patsubst %/, %/built-in.a, ${tools-path})
+src-y	:= $(patsubst %/, %/built-in.a, ${src-path})
+main-y	:= $(patsubst %/, %/built-in.a, ${main-path})
 
-h.obj: ${head_file}
-	touch h.obj
+## ossplayer : ${tools-y} ${src-y} ${src-y}
+ossplayer : ${tools-y} ${src-y} ${main-y} ${ossplayer-dirs} 
+	@${COMPILES}${CC} ${tools-y} ${src-y} ${main-y} -o $@
 
-m.obj: ${make_file}
-	touch m.obj
+${main-y} : $(patsubst %/built-in.a, %/Makefile, $(main-y))
+	@make -C ${main-path} COMPILES=${COMPILES} CPPFLAGS="${CPPFLAGS}" -f $<
+
+${tools-y} : $(patsubst %/built-in.a, %/Makefile, $(tools-y))
+	@make -C ${tools-path} COMPILES=${COMPILES} CPPFLAGS="${CPPFLAGS}" -f $<
+
+${src-y} : $(patsubst %/built-in.a, %/Makefile, $(src-y))
+	@make -C ${src-path} COMPILES=${COMPILES} CPPFLAGS="${CPPFLAGS}" -f $<
+
 
 clean:
-	-rm -rf ossplayer *.o *_obj *.obj *.map
+	@make -C ${tools-path} clean
+	@make -C ${src-path} clean
+	@make -C ${main-path} clean
+	@-rm ossplayer
 
+$(ossplayer-dirs): scripts FORCE
+	$(MAKE) $(build)=$@
+
+FORCE:
