@@ -43,7 +43,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-" set mouse=a
+set mouse=a
 set number
 set pumheight=10
 set ruler
@@ -183,19 +183,19 @@ endfunction
 
 vnoremap <C-c> "+y
 vnoremap <C-v> "+y
-" nmap  <F2> :TlistToggle<cr>
+nmap  <F2> :TlistToggle<cr>
 " nmap  <F3> :NERDTreeToggle<cr>
 " nmap  <F4> :MRU<cr>
 nnoremap <silent> <F3> :bp<CR>
 nnoremap <silent> <F4> :bn<CR>
 " nnoremap <silent> <F5> :b#<CR>
 " nmap  <F5> <Plug>LookupFile<cr>
-" nnoremap <silent> <F5> :Rgrep<CR>
+nnoremap <silent> <F6> :Rgrep<CR>
 " nmap  <F6> :vimgrep /<C-R>=expand("<cword>")<cr>/ **/*.c **/*.h<cr><C-o>:cw<cr>
 " nmap  <F7> :WMToggle<cr>
-nmap  <F6> :cp<cr>
-nmap  <F7> :cl<cr>
-nmap  <F8> :cn<cr>
+nmap  <F10> :cp<cr>
+nmap  <F11> :cl<cr>
+nmap  <F12> :cn<cr>
 nnoremap <silent> <F9> :bd<CR>
 nmap <C-F10> :call RunShell("Generate tags", "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .")<cr>
 " nmap <F10> :call HLUDSync()<cr>
